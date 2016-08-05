@@ -43,7 +43,7 @@
 <link href="/css/main.css?v=5.0.0" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="UWP,C#,编码格式转换," />
+  <meta name="keywords" content="php,nginx,Phalcon," />
 
 
 
@@ -61,19 +61,43 @@
 
 
 
-<meta name="description" content=".Net的C#中Encoding类未包含Default属性问题在C#的System.Text.Encoding中包含了Default、ASCII、UTF8等编码格式，但是在.Net开发中Encoding并没有Default这个类型，如下：查找MSDN发现了GetEncoding这个方法看看GetEncoding(Int32)这个的定义，其中入参0的时候返回的就是Default的编码格式，也就是说：">
+<meta name="description" content="最近刚好需要使用php开发个简单的Server接口，顺便了解了一下当前php的框架，综合考虑后，还是选择了Phalcon，以下简单记录下搭建过程
+搭建环境
+
+ubuntu 14.04
+php 5.5
+nginx 1.4.6
+phalcon 3.0
+
+
+搭建步骤1.安装php1sudo apt-get install php5-dev libpcre3-dev gcc make php5-mysql">
 <meta property="og:type" content="article">
-<meta property="og:title" content="UWP开发中遇到的Encoding解码格式问题">
-<meta property="og:url" content="http://jtfeng.github.io/2016/03/10/UWP-Encoding/index.html">
+<meta property="og:title" content="在Ubuntu上搭建nginx+php+Phalcon开发环境">
+<meta property="og:url" content="http://jtfeng.github.io/2016/04/06/Phalcon/index.html">
 <meta property="og:site_name" content="夏天的风">
-<meta property="og:description" content=".Net的C#中Encoding类未包含Default属性问题在C#的System.Text.Encoding中包含了Default、ASCII、UTF8等编码格式，但是在.Net开发中Encoding并没有Default这个类型，如下：查找MSDN发现了GetEncoding这个方法看看GetEncoding(Int32)这个的定义，其中入参0的时候返回的就是Default的编码格式，也就是说：">
-<meta property="og:image" content="http://ww1.sinaimg.cn/large/83d775f9jw1f1s0ojt25kj20lo038jrp.jpg">
-<meta property="og:image" content="http://ww4.sinaimg.cn/large/83d775f9jw1f1s0p856ahj21ck0nvgqd.jpg">
-<meta property="og:updated_time" content="2016-03-10T14:53:48.000Z">
+<meta property="og:description" content="最近刚好需要使用php开发个简单的Server接口，顺便了解了一下当前php的框架，综合考虑后，还是选择了Phalcon，以下简单记录下搭建过程
+搭建环境
+
+ubuntu 14.04
+php 5.5
+nginx 1.4.6
+phalcon 3.0
+
+
+搭建步骤1.安装php1sudo apt-get install php5-dev libpcre3-dev gcc make php5-mysql">
+<meta property="og:updated_time" content="2016-08-05T17:02:49.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="UWP开发中遇到的Encoding解码格式问题">
-<meta name="twitter:description" content=".Net的C#中Encoding类未包含Default属性问题在C#的System.Text.Encoding中包含了Default、ASCII、UTF8等编码格式，但是在.Net开发中Encoding并没有Default这个类型，如下：查找MSDN发现了GetEncoding这个方法看看GetEncoding(Int32)这个的定义，其中入参0的时候返回的就是Default的编码格式，也就是说：">
-<meta name="twitter:image" content="http://ww1.sinaimg.cn/large/83d775f9jw1f1s0ojt25kj20lo038jrp.jpg">
+<meta name="twitter:title" content="在Ubuntu上搭建nginx+php+Phalcon开发环境">
+<meta name="twitter:description" content="最近刚好需要使用php开发个简单的Server接口，顺便了解了一下当前php的框架，综合考虑后，还是选择了Phalcon，以下简单记录下搭建过程
+搭建环境
+
+ubuntu 14.04
+php 5.5
+nginx 1.4.6
+phalcon 3.0
+
+
+搭建步骤1.安装php1sudo apt-get install php5-dev libpcre3-dev gcc make php5-mysql">
 
 
 
@@ -91,7 +115,7 @@
   };
 </script>
 
-  <title> UWP开发中遇到的Encoding解码格式问题 | 夏天的风 </title>
+  <title> 在Ubuntu上搭建nginx+php+Phalcon开发环境 | 夏天的风 </title>
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
@@ -241,7 +265,7 @@
             
             
               
-                UWP开发中遇到的Encoding解码格式问题
+                在Ubuntu上搭建nginx+php+Phalcon开发环境
               
             
           </h1>
@@ -253,8 +277,8 @@
               <i class="fa fa-calendar-o"></i>
             </span>
             <span class="post-meta-item-text">发表于</span>
-            <time itemprop="dateCreated" datetime="2016-03-10T20:04:37+08:00" content="2016-03-10">
-              2016-03-10
+            <time itemprop="dateCreated" datetime="2016-04-06T10:53:37+08:00" content="2016-04-06">
+              2016-04-06
             </time>
           </span>
 
@@ -267,8 +291,8 @@
               <span class="post-meta-item-text">分类于</span>
               
                 <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
-                  <a href="/categories/UWP开发/" itemprop="url" rel="index">
-                    <span itemprop="name">UWP开发</span>
+                  <a href="/categories/PHP开发/" itemprop="url" rel="index">
+                    <span itemprop="name">PHP开发</span>
                   </a>
                 </span>
 
@@ -283,8 +307,8 @@
             
               <span class="post-comments-count">
                 &nbsp; | &nbsp;
-                <a href="/2016/03/10/UWP-Encoding/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/03/10/UWP-Encoding/" itemprop="commentsCount"></span>
+                <a href="/2016/04/06/Phalcon/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/04/06/Phalcon/" itemprop="commentsCount"></span>
                 </a>
               </span>
             
@@ -294,7 +318,7 @@
 
           
           
-             <span id="/2016/03/10/UWP-Encoding/" class="leancloud_visitors" data-flag-title="UWP开发中遇到的Encoding解码格式问题">
+             <span id="/2016/04/06/Phalcon/" class="leancloud_visitors" data-flag-title="在Ubuntu上搭建nginx+php+Phalcon开发环境">
                &nbsp; | &nbsp;
                <span class="post-meta-item-icon">
                  <i class="fa fa-eye"></i>
@@ -314,19 +338,45 @@
       
 
       
-        <h2 id="Net的C-中Encoding类未包含Default属性问题"><a href="#Net的C-中Encoding类未包含Default属性问题" class="headerlink" title=".Net的C#中Encoding类未包含Default属性问题"></a>.Net的C#中Encoding类未包含Default属性问题</h2><p>在C#的System.Text.Encoding中包含了Default、ASCII、UTF8等编码格式，但是在.Net开发中Encoding并没有Default这个类型，如下：<br><img src="http://ww1.sinaimg.cn/large/83d775f9jw1f1s0ojt25kj20lo038jrp.jpg" alt="未包含Default"><br>查找MSDN发现了GetEncoding这个方法<br><img src="http://ww4.sinaimg.cn/large/83d775f9jw1f1s0p856ahj21ck0nvgqd.jpg" alt="Getcoding"><br>看看GetEncoding(Int32)这个的定义，其中入参0的时候返回的就是Default的编码格式，也就是说：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">System.Text.Encoding.Default.GetBytes(str);</span><br></pre></td></tr></table></figure></p>
-<p>等于<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">System.Text.Encoding.GetEncoding(0).GetBytes(str);</span><br></pre></td></tr></table></figure></p>
-<p>其中0代表codepage，查找C#的编码对应表，可以看到还有很多编码格式对应的codepage，其中入参codepage在MSDN的描述：</p>
-<blockquote>
-<p><em>codepage</em> is less than zero or greater than 65535</p>
+        <p>最近刚好需要使用php开发个简单的Server接口，顺便了解了一下当前php的框架，综合考虑后，还是选择了Phalcon，以下简单记录下搭建过程</p>
+<h2 id="搭建环境"><a href="#搭建环境" class="headerlink" title="搭建环境"></a>搭建环境</h2><blockquote>
+<ul>
+<li>ubuntu 14.04</li>
+<li>php 5.5</li>
+<li>nginx 1.4.6</li>
+<li>phalcon 3.0</li>
+</ul>
 </blockquote>
-<p>编码格式太多了，还是直接用GetEncoding(String)这个方式吧，这时当你的入参是<em>utf-8</em>、<em>utf-32</em>、<em>utf-7</em>、<em>ascii</em>等这些格式时没有问题，但是如果你想用其他格式，如<em>gb2312</em>等，可能会遇到以下错误信息：</p>
+<h2 id="搭建步骤"><a href="#搭建步骤" class="headerlink" title="搭建步骤"></a>搭建步骤</h2><h3 id="1-安装php"><a href="#1-安装php" class="headerlink" title="1.安装php"></a>1.安装php</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo apt-get install php5-dev libpcre3-dev gcc make php5-mysql</span><br></pre></td></tr></table></figure>
+<p>如果已经安装了php，略过，不过得检查下pcre是否安装</p>
+<h3 id="2-安装并Phalcon"><a href="#2-安装并Phalcon" class="headerlink" title="2.安装并Phalcon"></a>2.安装并Phalcon</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">git <span class="built_in">clone</span> --depth=1 git://github.com/phalcon/cphalcon.git</span><br><span class="line"><span class="built_in">cd</span> cphalcon/build</span><br><span class="line">sudo ./install</span><br></pre></td></tr></table></figure>
+<p>将Phalcon添加进php扩展</p>
 <blockquote>
-<p>‘gbk’ is not a supported encoding name.</p>
+<p>在/etc/php5/fpm/conf.d/目录下创建文件30-phalcon.ini，并添加一句extension=phalcon.so</p>
 </blockquote>
-<p>这就是遇到的另一个问题。</p>
-<h2 id="不支持System-Text-Encoding-GetEncoding-“gbk”-问题"><a href="#不支持System-Text-Encoding-GetEncoding-“gbk”-问题" class="headerlink" title="不支持System.Text.Encoding.GetEncoding(“gbk”)问题"></a>不支持System.Text.Encoding.GetEncoding(“gbk”)问题</h2><p>解决起来也很简单，只需要在调用的语句前加入一句：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">System.Text.Encoding.RegisterProvider(CodePagesEncodingProvider.Instance);</span><br></pre></td></tr></table></figure></p>
-<p>完整示例<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">using System;</span><br><span class="line">using System.Text;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">SamplesEncoding</span>  </span>&#123;</span><br><span class="line"></span><br><span class="line">   <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">Main</span><span class="params">()</span>  </span>&#123;</span><br><span class="line"></span><br><span class="line">      <span class="comment">// Get the Default encoding by codepage.</span></span><br><span class="line">      Encoding Default = Encoding.GetEncoding( <span class="number">0</span> );</span><br><span class="line"></span><br><span class="line">      <span class="comment">// Get a gbk encoding by name.</span></span><br><span class="line">      Encoding.RegisterProvider(CodePagesEncodingProvider.Instance);</span><br><span class="line">      Encoding GBK = Encoding.GetEncoding( <span class="string">"gbk"</span> );</span><br><span class="line">      </span><br><span class="line">   &#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<h3 id="3-安装配置nginx"><a href="#3-安装配置nginx" class="headerlink" title="3.安装配置nginx"></a>3.安装配置nginx</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo apt-get install nginx</span><br></pre></td></tr></table></figure>
+<p>安装很简单，完成后按照Phalcon官方的要求做如下配置<br>找到文件/etc/nginx/sites-enabled/default,按如下内容修改。<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br></pre></td><td class="code"><pre><span class="line">server &#123;</span><br><span class="line">    listen      80;</span><br><span class="line">    server_name localhost;</span><br><span class="line">    root        /var/www/yourwebdir/public;   <span class="comment">###yourwebdir 替换成你的phalcon目录</span></span><br><span class="line">    index       index.php index.html index.htm;</span><br><span class="line">    charset     utf-8;</span><br><span class="line"></span><br><span class="line">    <span class="comment">#access_log /var/log/nginx/host.access.log main;</span></span><br><span class="line"></span><br><span class="line">    location / &#123;</span><br><span class="line">        try_files <span class="variable">$uri</span> <span class="variable">$uri</span>/ /index.php?_url=<span class="variable">$uri</span>&amp;<span class="variable">$args</span>;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    location ~ \.php &#123;</span><br><span class="line">        <span class="comment"># try_files   $uri =404;</span></span><br><span class="line"></span><br><span class="line">        fastcgi_pass 127.0.0.1:9000;</span><br><span class="line">        fastcgi_index /index.php;</span><br><span class="line"></span><br><span class="line">        include fastcgi_params;</span><br><span class="line">        fastcgi_split_path_info       ^(.+\.php)(/.+)$;</span><br><span class="line">        fastcgi_param PATH_INFO       <span class="variable">$fastcgi_path_info</span>;</span><br><span class="line">        fastcgi_param PATH_TRANSLATED <span class="variable">$document_root</span><span class="variable">$fastcgi_path_info</span>;</span><br><span class="line">        fastcgi_param SCRIPT_FILENAME <span class="variable">$document_root</span><span class="variable">$fastcgi_script_name</span>;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    location ~ /\.ht &#123;</span><br><span class="line">        deny all;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>ok，到这里就完成配置了。</p>
+<h2 id="遇到的问题"><a href="#遇到的问题" class="headerlink" title="遇到的问题"></a>遇到的问题</h2><h3 id="1-503-Bad-gatway"><a href="#1-503-Bad-gatway" class="headerlink" title="1.503 Bad gatway"></a>1.503 Bad gatway</h3><p>查看/var/log/nginx/erro.log发现一下错误日志：</p>
+<blockquote>
+<p>“connect() failed (111: Connection refused) while connecting to upstream”</p>
+</blockquote>
+<p>解决办法</p>
+<blockquote>
+<p>fastcgi_pass 127.0.0.1:9000; 改成 fastcgi_pass unix:/var/run/php5-fpm.sock；</p>
+</blockquote>
+<h3 id="2-Access-denied"><a href="#2-Access-denied" class="headerlink" title="2.Access denied"></a>2.Access denied</h3><p>错误日志</p>
+<blockquote>
+<p>“Access to the script ‘/var/www/xxx/public’ has been denied (see security.limit_extensions)”</p>
+</blockquote>
+<p>解决办法</p>
+<blockquote>
+<p>找到文件etc/php5/fpm/php.ini，将cgi.fix_pathinfo=0 改成 cgi.fix_pathinfo=1</p>
+</blockquote>
+<h3 id="3-phalcon-Volt-directory-can’t-be-written"><a href="#3-phalcon-Volt-directory-can’t-be-written" class="headerlink" title="3.phalcon Volt directory can’t be written"></a>3.phalcon Volt directory can’t be written</h3><p>Cache目录没有写权限<br>解决办法</p>
+<blockquote>
+<p>chmod 777 /var/www/yourwebdir/app/cache</p>
+</blockquote>
 
       
     </div>
@@ -335,11 +385,11 @@
       
         <div class="post-tags">
           
-            <a href="/tags/UWP/" rel="tag">#UWP</a>
+            <a href="/tags/php/" rel="tag">#php</a>
           
-            <a href="/tags/C/" rel="tag">#C#</a>
+            <a href="/tags/nginx/" rel="tag">#nginx</a>
           
-            <a href="/tags/编码格式转换/" rel="tag">#编码格式转换</a>
+            <a href="/tags/Phalcon/" rel="tag">#Phalcon</a>
           
         </div>
       
@@ -348,17 +398,13 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2009/07/14/hello-world/" rel="next" title="Hello World">
-                <i class="fa fa-chevron-left"></i> Hello World
+              <a href="/2016/03/10/UWP-Encoding/" rel="next" title="UWP开发中遇到的Encoding解码格式问题">
+                <i class="fa fa-chevron-left"></i> UWP开发中遇到的Encoding解码格式问题
               </a>
             
           </div>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2016/04/06/Phalcon/" rel="prev" title="在Ubuntu上搭建nginx+php+Phalcon开发环境">
-                在Ubuntu上搭建nginx+php+Phalcon开发环境 <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -384,8 +430,8 @@
           
   <div class="comments" id="comments">
     
-      <div class="ds-thread" data-thread-key="2016/03/10/UWP-Encoding/"
-           data-title="UWP开发中遇到的Encoding解码格式问题" data-url="http://jtfeng.github.io/2016/03/10/UWP-Encoding/">
+      <div class="ds-thread" data-thread-key="2016/04/06/Phalcon/"
+           data-title="在Ubuntu上搭建nginx+php+Phalcon开发环境" data-url="http://jtfeng.github.io/2016/04/06/Phalcon/">
       </div>
     
   </div>
@@ -513,7 +559,7 @@
               
             
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Net的C-中Encoding类未包含Default属性问题"><span class="nav-number">1.</span> <span class="nav-text">.Net的C#中Encoding类未包含Default属性问题</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#不支持System-Text-Encoding-GetEncoding-“gbk”-问题"><span class="nav-number">2.</span> <span class="nav-text">不支持System.Text.Encoding.GetEncoding(“gbk”)问题</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#搭建环境"><span class="nav-number">1.</span> <span class="nav-text">搭建环境</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#搭建步骤"><span class="nav-number">2.</span> <span class="nav-text">搭建步骤</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#1-安装php"><span class="nav-number">2.1.</span> <span class="nav-text">1.安装php</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-安装并Phalcon"><span class="nav-number">2.2.</span> <span class="nav-text">2.安装并Phalcon</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-安装配置nginx"><span class="nav-number">2.3.</span> <span class="nav-text">3.安装配置nginx</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#遇到的问题"><span class="nav-number">3.</span> <span class="nav-text">遇到的问题</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#1-503-Bad-gatway"><span class="nav-number">3.1.</span> <span class="nav-text">1.503 Bad gatway</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-Access-denied"><span class="nav-number">3.2.</span> <span class="nav-text">2.Access denied</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-phalcon-Volt-directory-can’t-be-written"><span class="nav-number">3.3.</span> <span class="nav-text">3.phalcon Volt directory can’t be written</span></a></li></ol></li></ol></div>
             
           </div>
           <div class="post-toc-indicator-bottom post-toc-indicator">
